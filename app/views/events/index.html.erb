@@ -1,2 +1,13 @@
 <h1>What's' Happening</h1>
 <p>Find Your Happening Today</p>
+
+
+<ul>
+  <% @events.each do |event| %>
+  <li><%= event.title %></li>
+  <li><%= event.description %></li>
+  <li></li>
+  <% end %>
+
+</ul>
+
