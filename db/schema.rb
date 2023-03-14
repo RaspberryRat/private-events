@@ -10,9 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_14_165310) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_14_174344) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "enrollments", force: :cascade do |t|
+    t.integer "event_id", null: false
+    t.integer "creator_id", null: false
+    t.string "category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["creator_id"], name: "index_enrollments_on_creator_id", unique: true
+    t.index ["event_id"], name: "index_enrollments_on_event_id", unique: true
+  end
 
   create_table "events", force: :cascade do |t|
     t.string "title"
