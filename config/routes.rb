@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resources :events, only: [:new, :create, :index, :show]
+  resources :users, only: [:show]
 end
