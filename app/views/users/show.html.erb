@@ -1,1 +1,18 @@
-<h2><%= @user.user_name %></h2>
+<h2>Events by <%= @user.user_name %></h2>
+
+<ul>
+  <% event_count = 1 %>
+  <% @user.events.each do |e| %>
+  <li> <%= event_count %>.
+    <%= e.title %></li>
+
+  <ul>
+    <li><%= e.date.to_time.strftime('%B %e') %></li>
+    <li><%= e.location %></li>
+    <li><%= e.description %></li>
+  </ul>
+  <br>
+  <% event_count += 1 %>
+  <% end %>
+</ul>
+
