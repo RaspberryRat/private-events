@@ -5,9 +5,12 @@
 <ul>
   <% @events.each do |event| %>
   <li><%= event.title %></li>
+  <li><%= event.creators[0].user_name %></li>
   <li><%= event.description %></li>
   <li></li>
   <% end %>
 
 </ul>
 
+ <li class="log-out-btn">
+            <%= button_to "Logout", destroy_user_session_path, method: :delete  %>
