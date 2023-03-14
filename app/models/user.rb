@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   has_many :enrollments, foreign_key: :creator_id
   has_many :events, through: :enrollments
+
+  validates :user_name, presence: true, uniqueness: true, length: { in: 3..15 }
 end
