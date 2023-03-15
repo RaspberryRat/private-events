@@ -4,13 +4,12 @@
 
 <ul>
   <% @events.each do |event| %>
-  <li><%= event.title %></li>
-  <li><%= event.creator.user_name %></li>
-  <li><%= event.description %></li>
-  <li></li>
+  <li><%= link_to event.title, event %></li>
+  <li><%= link_to event.creator.user_name, event %></li>
+  <li><%= link_to event.description, event %></li>
+  <br><br>
   <% end %>
 
 </ul>
 
- <li class="log-out-btn">
-            <%= button_to "Logout", destroy_user_session_path, method: :delete  %>
+ <li class="log-out-btn"><%= button_to "Logout", destroy_user_session_path, method: :delete  %></li>
