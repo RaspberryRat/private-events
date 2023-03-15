@@ -6,5 +6,5 @@ class User < ApplicationRecord
 
   validates :user_name, presence: true, uniqueness: true, length: { in: 3..15 }
 
-  has_many :events
+  has_many :events, foreign_key: 'creator_id'
 end
