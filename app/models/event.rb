@@ -1,4 +1,3 @@
 class Event < ApplicationRecord
-  has_many :enrollments
-  has_many :creators, through: :enrollments
+  belongs_to :creator, class_name: 'User'
 end
