@@ -23,6 +23,11 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 
+  def update
+     # need to figure out link but method is
+     # @event = Event.find(params[:id]).attendees << current_user
+  end
+
   private
 
   def event_params

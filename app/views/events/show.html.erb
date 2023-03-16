@@ -3,3 +3,12 @@
 <h3><%= e.title %></h3>
 <%= render "shared/event_details", :e => e %>
 
+<% if user_signed_in? %>
+<p><%= link_to 'Attend Happening', update_event_path %> </p>
+<% end %>
+
+ <div class="flash-message">
+  <% flash.each do |name, message| %>
+  <div class="<%= name %>"><%= message %></div>
+  <% end %>
+</div>
