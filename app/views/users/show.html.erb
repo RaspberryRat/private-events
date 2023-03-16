@@ -11,10 +11,16 @@
   <% end %>
 </ul>
 
-<h3>Happenings <%= u.user_name %> is attending</h3>
+<h3>Upcoming Happenings <%= u.user_name %> is attending</h3>
 <ul>
-  <% u.attended_events.each do |ae| %>
-  <li><%= link_to ae.title, ae %></li>
+  <% u.attended_events.where("date > ?", Time.now).each do |ue| %>
+  <li><%= link_to ue.title, ue %> on <%= ue.date.to_time.strftime('%B %e, %Y') %></li>
   <% end %>
 </ul>
 
+<h3>Past Happenings <%= u.user_name %> attended</h3>
+<ul>
+  <% u.attended_events.where("date < ?", Time.now).each do |ue| %>
+  <li><%= link_to ue.title, ue %> on <%= ue.date.to_time.strftime('%B %e, %Y') %></li>
+  <% end %>
+</ul>
