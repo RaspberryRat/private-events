@@ -1,5 +1,12 @@
 <% e = @event%>
 
+ <div class="flash-message">
+  <% flash.each do |name, message| %>
+  <div class="<%= name %>"><%= message %></div>
+  <% end %>
+</div>
+
+
 <h3><%= e.title %></h3>
 <%= render "shared/event_details", :e => e %>
 
@@ -7,8 +14,10 @@
 <p><%= link_to 'Attend Happening', edit_event_path(e) %> </p>
 <% end %>
 
- <div class="flash-message">
-  <% flash.each do |name, message| %>
-  <div class="<%= name %>"><%= message %></div>
+<h3>Attendees for this Happening:</h3>
+<ul><% e.attendees.each do |a| %>
+  <li><%= a.user_name %></li>
   <% end %>
-</div>
+</ul>
+
+
