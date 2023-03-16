@@ -1,12 +1,20 @@
-<h2>Events by <%= @user.user_name %></h2>
+<% u = @user %>
+<h2>Events by <%= u.user_name %></h2>
 
 <ul>
   <% event_count = 1 %>
-  <% @user.events.each do |e| %>
+  <% u.events.each do |e| %>
   <li> <%= event_count %>. <%= e.title %>
     <%= render "shared/event_details", :e => e %>
   <br>
   <% event_count += 1 %>
+  <% end %>
+</ul>
+
+<h3>Happenings <%= u.user_name %> is attending</h3>
+<ul>
+  <% u.attended_events.each do |ae| %>
+  <li><%= link_to ae.title, ae %></li>
   <% end %>
 </ul>
 

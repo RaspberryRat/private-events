@@ -16,7 +16,7 @@
 
 <h3>Attendees for this Happening:</h3>
 <ul><% e.attendees.each do |a| %>
-  <li><%= a.user_name %></li>
+  <li><%= link_to a.user_name, a %></li>
   <% end %>
 </ul>
 
