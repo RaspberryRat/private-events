@@ -4,7 +4,7 @@
 <%= render "shared/event_details", :e => e %>
 
 <% if user_signed_in? %>
-<p><%= link_to 'Attend Happening', update_event_path %> </p>
+<p><%= link_to 'Attend Happening', edit_event_path(e) %> </p>
 <% end %>
 
  <div class="flash-message">
