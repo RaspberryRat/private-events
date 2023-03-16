@@ -23,20 +23,17 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 
-
   def edit
-    @event =  Event.find(params[:id])
+    @event = Event.find(params[:id])
     @event.attendees << current_user
     flash[:success] = "You are now attending happening: #{@event.title}"
 
-    redirect_to root_path
+    redirect_to event_path(@event.id)
   end
-
 
   private
 
   def event_params
     params.require(:event).permit(:title, :description, :location, :date)
   end
-
 end
