@@ -23,20 +23,13 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 
-  def update
-     # need to figure out link but method is
-     # @event = Event.find(params[:id]).attendees << current_user
-     flash.now[:success] = "???"
-     redirect_to root_path
-
-
-  end
 
   def edit
-    flash[:success] = "This worked???"
-    redirect_to root_path
+    @event =  Event.find(params[:id])
+    @event.attendees << current_user
+    flash[:success] = "You are now attending happening: #{@event.title}"
 
-    #TODO so this works, I can get button to listen to me but not actually with update yet
+    redirect_to root_path
   end
 
 
