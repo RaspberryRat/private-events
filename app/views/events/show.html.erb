@@ -13,6 +13,7 @@
 <% if user_signed_in? %>
 <p><%= link_to 'Attend Happening', edit_event_path(e) %> </p>
 <% end %>
+<%# apparently i need to add a turbo link for this to do properly %>
 
 <h3>Attendees for this Happening:</h3>
 <ul><% e.attendees.each do |a| %>
