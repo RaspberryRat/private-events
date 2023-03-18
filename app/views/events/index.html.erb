@@ -1,4 +1,3 @@
-<h1>What's' Happening</h1>
 <p>Find Your Happening Today</p>
 
 <p><%= link_to "Add New happening", new_event_path %></p>
@@ -25,9 +24,7 @@
 
 </ul>
 
- <li class="log-out-btn"><%= button_to "Logout", destroy_user_session_path, method: :delete  %></li>
- <span class="link-btn"><%= link_to "Sign up here", new_user_registration_path %></span>
-        <span><%= button_to "Sign in", user_session_path %></span>
+
  <div class="flash-message">
   <% flash.each do |name, message| %>
   <div class="<%= name %>"><%= message %></div>

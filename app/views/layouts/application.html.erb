@@ -11,6 +11,29 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="header">
+      <ul>
+        <li class="site-title">What's Happening?</li>
+        <li class="log-out-btn">
+          <%= button_to "Logout", destroy_user_session_path, method: :delete  %>
+        </li>
+        <li class="link-btn">
+          <%= link_to "Sign up here", new_user_registration_path %>
+        </li>
+        <li>
+          <%= button_to "Sign in", user_session_path %>
+        </li>
+      </ul>
+    </div>
+
+    <div class="container">
+      <div class="content-container">
+        <%= yield %>
+        </div>
+    </div>
+
+    <div class="footer">
+
+    </div>
   </body>
 </html>
