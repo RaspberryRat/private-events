@@ -1,10 +1,23 @@
+<% e = @events %>
 <h1>What's' Happening</h1>
 <p>Find Your Happening Today</p>
 
 <p><%= link_to "Add New happening", new_event_path %></p>
 
+<h3>Upcoming Happenings</h3>
 <ul>
-  <% @events.each do |event| %>
+  <% e.future.each do |event| %>
+  <li><%= link_to event.title, event %></li>
+  <li><%= link_to event.creator.user_name, event.creator %></li>
+  <li><%= link_to event.description, event %></li>
+  <br><br>
+  <% end %>
+
+</ul>
+
+<h3>Past Happenings</h3>
+<ul>
+  <% e.past.each do |event| %>
   <li><%= link_to event.title, event %></li>
   <li><%= link_to event.creator.user_name, event.creator %></li>
   <li><%= link_to event.description, event %></li>
