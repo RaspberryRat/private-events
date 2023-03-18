@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  resources :events, only: [:new, :create, :index, :show, :update, :edit]
+  resources :events, only: [:new, :create, :index, :show, :edit, :destroy]
+
   resources :users, only: [:show]
 
   get 'events/attend', to:  'events#attend'

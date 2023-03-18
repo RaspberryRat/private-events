@@ -34,6 +34,17 @@ class EventsController < ApplicationController
     redirect_to event_path(@event.id)
   end
 
+  def destroy
+    @event = Event.find(params[:id])
+    if @event.attendees.include?(current_user)
+      @event.admissions.delete(@event.admissions.where(attendee_id: current_user.id))
+      flash[:success] = "You are no longer attending: #{@event.title}"
+    else
+      flash[:error] = "You are not attending: #{@event.title}"
+    end
+    redirect_to event_path(@event.id)
+  end
+
   private
 
   def event_params

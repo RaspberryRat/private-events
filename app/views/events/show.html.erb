@@ -13,6 +13,10 @@
 <% if user_signed_in? %>
 <p><%= link_to 'Attend Happening', edit_event_path(e) %> </p>
 <% end %>
+<br>
+<% if user_signed_in? %>
+<p><%= link_to "Don't Attend Happening", e, data: { turbo_method: :delete } %> </p>
+<% end %>
 <%# apparently i need to add a turbo link for this to do properly %>
 
 <h3>Attendees for this Happening:</h3>
