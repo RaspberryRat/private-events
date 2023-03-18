@@ -25,9 +25,12 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find(params[:id])
-    @event.attendees << current_user
-    flash[:success] = "You are now attending happening: #{@event.title}"
-
+    if @event.attendees.include?(current_user)
+      flash[:error] = "You are already attending: #{@event.title}"
+    else
+      @event.attendees << current_user
+      flash[:success] = "You are now attending happening: #{@event.title}"
+    end
     redirect_to event_path(@event.id)
   end
 
