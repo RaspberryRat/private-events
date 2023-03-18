@@ -1,33 +1,32 @@
-<p>Find Your Happening Today</p>
+<div class="index-container">
+  <div class="page-title-container">
+    <p class="index-title">Find Your Happening Today</p>
+    <p class="new-event-link">
+      <%= link_to "Add New happening", new_event_path %>
+    </p>
+  </div>
 
-<p><%= link_to "Add New happening", new_event_path %></p>
+  <div class="event-list future-list">
+    <h3 class="h3-title">Upcoming Happenings</h3>
+    <ul>
+      <% @events.future.each do |event| %>
+      <li><%= link_to event.title, event %></li>
+      <li><%= link_to event.creator.user_name, event.creator %></li>
+      <li><%= link_to event.description, event %></li>
+      <br><br>
+      <% end %>
+    </ul>
+  </div>
 
-<h3>Upcoming Happenings</h3>
-<ul>
-  <% @events.future.each do |event| %>
-  <li><%= link_to event.title, event %></li>
-  <li><%= link_to event.creator.user_name, event.creator %></li>
-  <li><%= link_to event.description, event %></li>
-  <br><br>
-  <% end %>
-
-</ul>
-
-<h3>Past Happenings</h3>
-<ul>
-  <% @events.past.each do |event| %>
-  <li><%= link_to event.title, event %></li>
-  <li><%= link_to event.creator.user_name, event.creator %></li>
-  <li><%= link_to event.description, event %></li>
-  <br><br>
-  <% end %>
-
-</ul>
-
-
- <div class="flash-message">
-  <% flash.each do |name, message| %>
-  <div class="<%= name %>"><%= message %></div>
-  <% end %>
+  <div class="event-list past-list">
+    <h3 class="h3-title" >Past Happenings</h3>
+    <ul>
+      <% @events.past.each do |event| %>
+      <li><%= link_to event.title, event %></li>
+      <li><%= link_to event.creator.user_name, event.creator %></li>
+      <li><%= link_to event.description, event %></li>
+      <br><br>
+      <% end %>
+    </ul>
+  </div>
 </div>
-

@@ -11,29 +11,39 @@
   </head>
 
   <body>
-    <div class="header">
-      <ul>
-        <li class="site-title">What's Happening?</li>
-        <li class="log-out-btn">
-          <%= button_to "Logout", destroy_user_session_path, method: :delete  %>
-        </li>
-        <li class="link-btn">
-          <%= link_to "Sign up here", new_user_registration_path %>
-        </li>
-        <li>
-          <%= button_to "Sign in", user_session_path %>
-        </li>
-      </ul>
-    </div>
-
     <div class="container">
+
+      <div class="header">
+        <ul>
+          <li class="site-title"><%= link_to "What's Happening?", root_path %></li>
+          <li class="log-out-btn">
+            <%= button_to "Logout", destroy_user_session_path, method: :delete  %>
+          </li>
+          <li class="link-btn">
+            <%= link_to "Sign up here", new_user_registration_path %>
+          </li>
+          <li>
+            <%= button_to "Sign in", user_session_path %>
+          </li>
+        </ul>
+      </div>
+
+         <div class="flash-message">
+          <% flash.each do |name, message| %>
+          <div class="<%= name %>"><%= message %></div>
+          <% end %>
+        </div>
+
       <div class="content-container">
         <%= yield %>
-        </div>
-    </div>
+      </div>
 
-    <div class="footer">
-      Smelly Industries
+      <div class="footer">
+        <ul>
+          <li class="git-link"><%= link_to "Smelly Industries", 'https://www.github.com/raspberryrat' %></li>
+        </ul>
+      </div>
+
     </div>
   </body>
 </html>
