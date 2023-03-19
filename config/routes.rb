@@ -12,5 +12,6 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show]
 
-  get 'events/attend', to:  'events#attend'
+  resources :admissions
+
 end

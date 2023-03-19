@@ -1,21 +1,18 @@
 <% e = @event%>
 
- <div class="flash-message">
-  <% flash.each do |name, message| %>
-  <div class="<%= name %>"><%= message %></div>
-  <% end %>
-</div>
-
 
 <h3><%= e.title %></h3>
 <%= render "shared/event_details", :e => e %>
 
 <% if user_signed_in? %>
-<p><%= link_to 'Attend Happening', edit_event_path(e) %> </p>
+<p><%= link_to "Attend Happening", new_admission_path(:event_id => e.id) %></p>
+
 <% end %>
+
 <br>
+
 <% if user_signed_in? %>
-<p><%= link_to "Don't Attend Happening", e, data: { turbo_method: :delete } %> </p>
+<p><%= link_to "Don't Attend Happening", admission_path(e), data: { turbo_method: :delete } %> </p>
 <% end %>
 <%# apparently i need to add a turbo link for this to do properly %>
 
