@@ -42,21 +42,32 @@ table {
 	border-spacing: 0;
 }
 
+button, input[type="submit"], input[type="reset"] {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
 /* Above this is just myers reset */
 
 * {
   font: "Helvetica", sans-serif;
   font-size: 20px;
+  color: var(--dark-blue);
 
-  --mint-green: #DBF9F4;
-  --azure: #E6FDFF;
-  --plat: #D9D7DD;
-  --af-violet: #B07BAC;
-  --hook-green: #5F7367;
+  --red: #e63946;
+  --beige: #f1faee;
+  --light-blue: #a8dadc;
+  --med-blue: #457b9d;
+  --dark-blue: #1d3557;
 }
 
 html {
-  background-color: var(--mint-green);
+  background-color: var(--light-blue);
 }
 
 .container {
@@ -65,14 +76,14 @@ html {
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: auto 1fr auto;
-  background-color: var(--mint-green);
+  background-color: var(--light-blue);
 }
 
 .header,
 .footer {
   min-width: 100vw;
   min-height: 5vh;
-  background-color: var(--plat);
+  background-color: var(--beige);
 }
 
 .header ul {
@@ -133,4 +144,12 @@ html {
 
 .git-link a {
   text-decoration: none;
+}
+
+.link-btn {
+  background-color: var(--red);
+  color: var(--beige);
+  border: 0px;
+  padding: 3px 8px;
+  border-radius: 8px;
 }
