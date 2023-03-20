@@ -1,26 +1,34 @@
-<% u = @user %>
-<h2>Events by <%= u.user_name %></h2>
+<div class="show-user-container">
+  <% u = @user %>
+  <div class="user-events">
+    <h2>Events by <%= u.user_name %></h2>
+    <ul>
+      <% event_count = 1 %>
+      <% u.events.each do |e| %>
+      <li> <%= event_count %>. <%= e.title %>
+        <%= render "shared/event_details", :e => e %>
+      <br>
+      <% event_count += 1 %>
+      <% end %>
+    </ul>
+  </div>
 
-<ul>
-  <% event_count = 1 %>
-  <% u.events.each do |e| %>
-  <li> <%= event_count %>. <%= e.title %>
-    <%= render "shared/event_details", :e => e %>
-  <br>
-  <% event_count += 1 %>
-  <% end %>
-</ul>
-
-<h3>Upcoming Happenings <%= u.user_name %> is attending</h3>
-<ul>
-  <% u.attended_events.where("date > ?", Time.now).each do |ue| %>
-  <li><%= link_to ue.title, ue %> on <%= ue.date.to_time.strftime('%B %e, %Y') %></li>
-  <% end %>
-</ul>
-
-<h3>Past Happenings <%= u.user_name %> attended</h3>
-<ul>
-  <% u.attended_events.where("date < ?", Time.now).each do |ue| %>
-  <li><%= link_to ue.title, ue %> on <%= ue.date.to_time.strftime('%B %e, %Y') %></li>
-  <% end %>
-</ul>
+  <div class="user-attending-events">
+    <div class="user-upcoming-events">
+      <h3>Upcoming Happenings <%= u.user_name %> is attending</h3>
+      <ul>
+        <% u.attended_events.where("date > ?", Time.now).each do |ue| %>
+        <li><%= link_to ue.title, ue %> on <%= ue.date.to_time.strftime('%B %e, %Y') %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="user-past-events">
+      <h3>Past Happenings <%= u.user_name %> attended</h3>
+      <ul>
+        <% u.attended_events.where("date < ?", Time.now).each do |ue| %>
+        <li><%= link_to ue.title, ue %> on <%= ue.date.to_time.strftime('%B %e, %Y') %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

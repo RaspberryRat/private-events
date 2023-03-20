@@ -252,3 +252,58 @@ button:hover {
   color: var(--light-red);
 }
 
+.show-user-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 50px;
+  gap: 100px;
+}
+
+.user-events {
+  grid-column: 1;
+  background-color: var(--dark-blue);
+  padding: 15px;
+}
+
+.user-events,
+.user-attending-events {
+  background-color: var(--dark-blue);
+  padding: 15px;
+  border-radius: 25px;
+}
+
+
+
+.user-events > h2,
+.user-events ul > li,
+.user-upcoming-events > h3,
+.user-past-events > h3,
+.user-upcoming-events ul > li > a,
+.user-past-events ul > li > a,
+.user-upcoming-events ul > li,
+.user-past-events ul > li {
+  color: var(--beige);
+  padding-bottom: 5px;
+}
+
+
+.user-attending-events {
+  grid-column: 2;
+
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+
+.user-events h2,
+.user-upcoming-events > h3,
+.user-past-events > h3 {
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+.user-upcoming-events {
+
+}
+
+.user-past-events {
+}
