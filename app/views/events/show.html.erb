@@ -1,25 +1,31 @@
-<% e = @event%>
+<div class="event-show-container">
+  <% e = @event%>
 
 
-<h3><%= e.title %></h3>
-<%= render "shared/event_details", :e => e %>
+  <div class="event-details-container">
+    <h3><%= e.title %></h3>
+    <%= render "shared/event_details", :e => e %>
 
-<% if user_signed_in? %>
-<p><%= link_to "Attend Happening", new_admission_path(:event_id => e.id) %></p>
+    <br><br>
 
-<% end %>
+      <div class="event-attendees">
+        <h3>Attendees for this Happening:</h3>
+        <ul><% e.attendees.each do |a| %>
+          <li><%= link_to a.user_name, a %></li>
+          <% end %>
+        </ul>
+      </div>
+  </div>
 
-<br>
+  <div class="event-btn">
+    <% if user_signed_in? %>
+    <div class="link-btn attend-btn"><%= link_to "Attend Happening", new_admission_path(:event_id => e.id) %></div>
+    <% end %>
 
-<% if user_signed_in? %>
-<p><%= link_to "Don't Attend Happening", admission_path(e), data: { turbo_method: :delete } %> </p>
-<% end %>
-<%# apparently i need to add a turbo link for this to do properly %>
-
-<h3>Attendees for this Happening:</h3>
-<ul><% e.attendees.each do |a| %>
-  <li><%= link_to a.user_name, a %></li>
-  <% end %>
-</ul>
+    <% if user_signed_in? %>
+    <div class="link-btn no-attend-btn"><%= link_to "Don't Attend Happening", admission_path(e), data: { turbo_method: :delete } %> </div>
+    <% end %>
+  </div>
 
 
+</div>

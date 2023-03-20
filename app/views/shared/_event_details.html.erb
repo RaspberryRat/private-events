@@ -1,6 +1,7 @@
 
   <ul>
-    <li><%= e.date.to_time.strftime('%B %e') %></li>
-    <li><%= e.location %></li>
-    <li><%= e.description %></li>
+    <li class="event-list-time"><%= e.date.to_time.strftime('%B %e') %></li>
+    <li class="event-list-location"><%= e.location %></li>
+    <li class="event-title-details"><%= e.description %></li>
   </ul>
+
