@@ -1,7 +1,7 @@
 <div class="index-container">
   <div class="page-title-container">
     <p class="index-title">Find Your Happening Today</p>
-    <p class="new-event-link">
+    <span class="new-event-link link-btn">
       <%= link_to "Add New happening", new_event_path %>
     </p>
   </div>
@@ -10,9 +10,10 @@
     <h3 class="h3-title">Upcoming Happenings</h3>
     <ul>
       <% @events.future.each do |event| %>
-      <li><%= link_to event.title, event %></li>
-      <li><%= link_to event.creator.user_name, event.creator %></li>
-      <li><%= link_to event.description, event %></li>
+      <li class="event-title-list"><%= link_to event.title, event %></li>
+      <li class="event-title-author">by: <%= link_to event.creator.user_name, event.creator %></li>
+      <li class="event-list-time"><%= event.date.to_time.strftime('%B %e') %></li>
+      <li class="event-title-details"><br><br>Details<br><br><%= link_to event.description, event %></li>
       <br><br>
       <% end %>
     </ul>
@@ -22,9 +23,10 @@
     <h3 class="h3-title" >Past Happenings</h3>
     <ul>
       <% @events.past.each do |event| %>
-      <li><%= link_to event.title, event %></li>
-      <li><%= link_to event.creator.user_name, event.creator %></li>
-      <li><%= link_to event.description, event %></li>
+      <li class="event-title-list"><%= link_to event.title, event %></li>
+      <li class="event-title-author">by: <%= link_to event.creator.user_name, event.creator %></li>
+      <li class="event-list-time"><%= event.date.to_time.strftime('%B %e') %></li>
+      <li class="event-title-details"><br><br>Details <br><br><%= link_to event.description, event %></li>
       <br><br>
       <% end %>
     </ul>
