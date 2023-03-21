@@ -1,0 +1,13 @@
+<div class="form-container">
+    <%= form_with model: @event do |e| %>
+      <%= e.label :title, "Event title:" %>
+      <%= e.text_field :title, placeholder: "What's your happening called?" %>
+      <%= e.label :date, "Date:" %>
+      <%= e.date_field :date %>
+      <%= e.label :location, "Location:" %>
+      <%= e.text_field :location, placeholder: "Where is your happening?" %>
+      <%= e.label :description, "Description:" %>
+      <%= e.text_field :description, placeholder: "What's your happening for?" %>
+      <%= e.submit "Submit your happening", class: "link-btn" %>
+    <% end %>
+  </div>

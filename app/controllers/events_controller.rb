@@ -24,14 +24,24 @@ class EventsController < ApplicationController
   end
 
   def edit
+    @event = Event.find(params[:id])
+  end
 
-    puts params[:id]
+  def update
+    @event = Event.find(params[:id])
 
-    # return flash.now[:error] = "You can't edit events you didn't create" unless current_user == @event.creator
+    if @event.update(event_params)
+      redirect_to @event
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
+    @event = Event.find(params[:id])
+    @event.destroy
 
+    redirect_to root_path, status: :see_other
   end
 
   private
