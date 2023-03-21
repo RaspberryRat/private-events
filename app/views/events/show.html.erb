@@ -17,6 +17,11 @@
       </div>
   </div>
 
+  <div class="event-action-btn">
+    <div class="link-btn edit-btn"><%= link_to "Edit Happening", edit_event_path(e) %></div>
+    <div class="link-btn delete-btn"><%= link_to "Delete Happening", event_path(e), data: { turbo_method: :delete } %></div>
+  </div>
+
   <div class="event-btn">
     <% if user_signed_in? %>
     <div class="link-btn attend-btn"><%= link_to "Attend Happening", new_admission_path(:event_id => e.id) %></div>

@@ -12,6 +12,6 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show]
 
-  resources :admissions
+  resources :admissions, only: [:new, :destroy]
 
 end

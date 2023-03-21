@@ -24,25 +24,14 @@ class EventsController < ApplicationController
   end
 
   def edit
-    @event = Event.find(params[:id])
-    if @event.attendees.include?(current_user)
-      flash[:error] = "You are already attending: #{@event.title}"
-    else
-      @event.attendees << current_user
-      flash[:success] = "You are now attending happening: #{@event.title}"
-    end
-    redirect_to event_path(@event.id)
+
+    puts params[:id]
+
+    # return flash.now[:error] = "You can't edit events you didn't create" unless current_user == @event.creator
   end
 
   def destroy
-    @event = Event.find(params[:id])
-    if @event.attendees.include?(current_user)
-      @event.admissions.delete(@event.admissions.where(attendee_id: current_user.id))
-      flash[:success] = "You are no longer attending: #{@event.title}"
-    else
-      flash[:error] = "You are not attending: #{@event.title}"
-    end
-    redirect_to event_path(@event.id)
+
   end
 
   private

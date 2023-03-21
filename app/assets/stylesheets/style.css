@@ -184,8 +184,6 @@ html {
 
 .event-list ul {
   padding: 10px;
-
-
 }
 
 .event-list ul li{
@@ -193,6 +191,7 @@ html {
   padding: 5px;
   padding-left: 15px;
 }
+
 /*
 .event-title-list a:link,
 .event-title-list a:visited,
@@ -216,10 +215,6 @@ html {
   text-decoration: underline;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
-
-
-
-
 }
 
 .event-title-author,
@@ -330,17 +325,19 @@ button {
   padding-bottom: 10px;
 }
 
+/* Event show view */
+
 .event-show-container {
  display: grid;
- grid-template-columns: 1fr 1fr 1fr;
+ grid-template-columns: 2fr 1fr 1fr 1fr;
  grid-template-rows: 1fr 1fr 1fr 1fr;
  gap: 30px;
-
 }
 
 .event-details-container,
 .event-btn {
-  grid-column: 2 / 3;
+  grid-column: 2;
+
 }
 
 .event-details-container {
@@ -349,6 +346,15 @@ button {
   padding: 20px;
   border-radius: 25px;
   margin-top: 50px;
+}
+
+.event-action-btn {
+  display: grid;
+  gap: 20px;
+  grid-column: 3;
+  grid-row: 2;
+  grid-row: 1fr 1fr;
+  justify-items: left;
 }
 
 .event-details-container h3,
