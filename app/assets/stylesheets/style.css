@@ -247,9 +247,13 @@ button {
   text-decoration: none;
 }
 
-.link-btn a:hover,
-button:hover {
-  color: var(--light-red);
+.link-btn:hover {
+  background-color: var(--light-red);
+}
+
+.link-btn:active {
+  background: linear-gradient(45deg, var(--light-red), var(--red), var(--light-blue), var(--me-blue));
+  border: 3px solid var(--dark-blue);
 }
 
 .show-user-container {
