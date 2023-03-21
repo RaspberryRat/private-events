@@ -14,17 +14,25 @@
     <div class="container">
 
       <div class="header">
+        <div class="site-title"><%= link_to "What's Happening?", root_path %></div>
         <ul>
-          <li class="site-title"><%= link_to "What's Happening?", root_path %></li>
+          <% if user_signed_in? %>
           <li class="log-out-btn link-btn">
             <%= button_to "Logout", destroy_user_session_path, method: :delete  %>
           </li>
+          <% else %>
           <li class="link-btn">
             <%= button_to "Sign up here", new_user_registration_path %>
           </li>
+          <% end %>
+
+          <% unless user_signed_in? %>
           <li class="link-btn">
             <%= button_to "Sign in", user_session_path %>
           </li>
+          <% end %>
+
+
         </ul>
       </div>
 
