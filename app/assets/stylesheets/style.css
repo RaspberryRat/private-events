@@ -100,7 +100,7 @@ html {
 
 .header .site-title {
   justify-self: center;
-  margin-left: 12%;
+  margin-left: 20%;
   font-weight: bold;
   font-size: 2rem;
 }
@@ -156,7 +156,10 @@ html {
 
 .new-event-link {
   margin: 10px;
-  padding-top: 20px !important;
+  padding: 20px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 
@@ -168,11 +171,13 @@ html {
   grid-template-columns: 1fr 10%;
   margin-left: 15%;
   padding-right: 5%;
+  align-items: center;
 }
 
 .index-title {
   font-size: 1.5rem;
   padding-top: 30px;
+  align-self: start;
 }
 
 
