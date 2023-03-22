@@ -37,8 +37,9 @@
   <% if e.private && e.creator == current_user %>
     <div class="invite-container">
       <h3>Invite members to your happening:</h3>
-      <%= form_with model: @invite do |i| %>
+      <%= form_with url: invites_path do |i| %>
         <%= i.collection_select :user_id, User.order(:user_name), :id, :user_name %>
+        <%= i.hidden_field :event_id, value: e.id %>
         <%= i.submit "Invite member", class: "link-btn" %>
       <% end %>
     </div>
