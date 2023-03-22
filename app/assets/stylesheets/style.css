@@ -430,7 +430,8 @@ button {
 
 .log-in-container > form > .actions > .link-btn,
 .sign-up-container > form > .actions > .link-btn,
-.form-container > form > .link-btn {
+.form-container > form > .link-btn,
+.invite-container > form > .link-btn {
   background-color: var(--red);
   color: var(--beige);
   padding: 10px;
@@ -438,7 +439,8 @@ button {
 }
 
 .log-in-container > .sign-up-btns ,
-.sign-up-container > .sign-up-btns {
+.sign-up-container > .sign-up-btns,
+.invite-container > form > .link-btn {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -447,8 +449,29 @@ button {
 }
 
 .log-in-container > .sign-up-btns > .link-btn,
-.sign-up-container > .sign-up-btns > .link-btn {
+.sign-up-container > .sign-up-btns > .link-btn,
+.invite-container > form > .link-btn {
   padding: 15px;
+}
+
+.invite-container {
+  grid-column: 2;
+  grid-row: 4 / 6;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.invite-container h3 {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+}
+
+.invite-container > form > select {
+  width: 80%;
+  margin-bottom: 25px;
+
 }
 
 

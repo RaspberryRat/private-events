@@ -11,5 +11,5 @@ class User < ApplicationRecord
   has_many :admissions, foreign_key: :attendee_id
   has_many :attended_events, through: :admissions, source: :event_attended
 
-  belongs_to :invitee, class_name: 'Invite'
+  has_many :invitees, foreign_key: :invitee_id
 end

@@ -22,15 +22,25 @@
     <div class="link-btn delete-btn"><%= link_to "Delete Happening", event_path(e), data: { turbo_method: :delete } %></div>
   </div>
 
-  <div class="event-btn">
-    <% if user_signed_in? %>
-    <div class="link-btn attend-btn"><%= link_to "Attend Happening", new_admission_path(:event_id => e.id) %></div>
-    <% end %>
+  <% if e.private && e.invitees.include?(current_user)  %>
+    <div class="event-btn">
+      <% if user_signed_in? %>
+      <div class="link-btn attend-btn"><%= link_to "Attend Happening", new_admission_path(:event_id => e.id) %></div>
+      <% end %>
 
-    <% if user_signed_in? %>
-    <div class="link-btn no-attend-btn"><%= link_to "Don't Attend Happening", admission_path(e), data: { turbo_method: :delete } %> </div>
-    <% end %>
-  </div>
+      <% if user_signed_in? %>
+      <div class="link-btn no-attend-btn"><%= link_to "Don't Attend Happening", admission_path(e), data: { turbo_method: :delete } %> </div>
+      <% end %>
+    </div>
+  <% end %>
 
-
+  <% if e.private && e.creator == current_user %>
+    <div class="invite-container">
+      <h3>Invite members to your happening:</h3>
+      <%= form_with model: @invite do |i| %>
+        <%= i.collection_select :user_id, User.order(:user_name), :id, :user_name %>
+        <%= i.submit "Invite member", class: "link-btn" %>
+      <% end %>
+    </div>
+  <% end %>
 </div>

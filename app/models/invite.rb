@@ -1,5 +1,5 @@
 class Invite < ApplicationRecord
 
   belongs_to :event
-  has_many :invitees, foreign_key: :invitee_id
+  belongs_to :invitee, class_name: 'User'
 end
