@@ -128,11 +128,14 @@ html {
   background-color: var(--dark-blue);
 
 
+
 }
 
 .flash-message > div {
   color: var(--beige);
   font-size: 1.5rem;
+  align-self: center;
+
 }
 
 .index-container {
@@ -394,4 +397,46 @@ button {
   margin: 20px;
   padding-top: 25px;
 }
+
+/* log in and sign up view */
+.log-in-container,
+.sign-up-container {
+  padding-top: 30px;
+  margin-left: 30px;
+}
+
+.log-in-container > form > div,
+.sign-up-container > form > div  {
+  padding-bottom: 15px;
+}
+
+.log-in-container > form > .actions,
+.sign-up-container > form > .actions  {
+  display: flex;
+  justify-content: start;
+  align-self: start;
+}
+
+.log-in-container > form > .actions > .link-btn,
+.sign-up-container > form > .actions > .link-btn {
+  background-color: var(--red);
+  color: var(--beige);
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.log-in-container > .sign-up-btns ,
+.sign-up-container > .sign-up-btns {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+
+}
+
+.log-in-container > .sign-up-btns > .link-btn,
+.sign-up-container > .sign-up-btns > .link-btn {
+  padding: 15px;
+}
+
 
