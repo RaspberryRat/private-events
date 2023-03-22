@@ -62,6 +62,7 @@ button, input[type="submit"], input[type="reset"] {
 
   --red: #e63946;
   --beige: #f1faee;
+  --white: #ffffff;
   --light-blue: #a8dadc;
   --med-blue: #457b9d;
   --dark-blue: #1d3557;
@@ -121,6 +122,10 @@ html {
 
 .site-title a {
   text-decoration: none;
+}
+
+.content-container {
+  padding-top: 10px;
 }
 
 .flash-message {
@@ -423,7 +428,8 @@ button {
 }
 
 .log-in-container > form > .actions > .link-btn,
-.sign-up-container > form > .actions > .link-btn {
+.sign-up-container > form > .actions > .link-btn,
+.form-container > form > .link-btn {
   background-color: var(--red);
   color: var(--beige);
   padding: 10px;
@@ -445,3 +451,33 @@ button {
 }
 
 
+/* event form view */
+
+.form-container > form {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  padding: 30px;
+}
+
+.content-container > h3 {
+  margin-left: 30px;
+  font-size: 1.5rem;
+}
+
+.form-container > form > input,
+.form-container > form > textarea {
+  margin-bottom: 20px;
+  background-color: var(--med-blue);
+  color: var(--beige);
+}
+
+.form-container > form > input[type="text"],
+.form-container > form > textarea {
+  width: 45%;
+}
+
+::placeholder {
+  color: var(--white);
+}

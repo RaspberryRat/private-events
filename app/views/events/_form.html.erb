@@ -7,7 +7,7 @@
       <%= e.label :location, "Location:" %>
       <%= e.text_field :location, placeholder: "Where is your happening?" %>
       <%= e.label :description, "Description:" %>
-      <%= e.text_field :description, placeholder: "What's your happening for?" %>
+      <%= e.text_area :description, cols: 30, rows: 10, placeholder: "What's your happening for?" %>
       <%= e.submit "Submit your happening", class: "link-btn" %>
     <% end %>
   </div>
