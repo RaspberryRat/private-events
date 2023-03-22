@@ -14,4 +14,6 @@ Rails.application.routes.draw do
 
   resources :admissions, only: [:new, :destroy]
 
+  resources :invites, only: [:new, :create]
+
 end
