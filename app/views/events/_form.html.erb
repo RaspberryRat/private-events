@@ -8,6 +8,8 @@
       <%= e.text_field :location, placeholder: "Where is your happening?" %>
       <%= e.label :description, "Description:" %>
       <%= e.text_area :description, cols: 30, rows: 10, placeholder: "What's your happening for?" %>
+      <%= e.label :private, "Private Event?" %>
+      <%= e.check_box :private %>
       <%= e.submit "Submit your happening", class: "link-btn" %>
     <% end %>
   </div>

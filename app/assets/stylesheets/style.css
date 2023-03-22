@@ -379,12 +379,13 @@ button {
 
 .event-btn {
   grid-row: 3 / 4;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
-  gap: 20px;
-  padding-left: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+.event-btn > .link-btn {
+  padding: 15px;
 }
 
 .event-attendees ul > li > a {
