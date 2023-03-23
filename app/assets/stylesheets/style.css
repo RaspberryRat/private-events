@@ -287,7 +287,7 @@ button {
 }
 
 .link-btn:active {
-  background: linear-gradient(45deg, var(--light-red), var(--red), var(--light-blue), var(--me-blue));
+  background: linear-gradient(45deg, var(--light-red), var(--red), var(--light-blue), var(--med-blue));
   border: 3px solid var(--dark-blue);
 }
 

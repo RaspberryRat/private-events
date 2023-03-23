@@ -22,7 +22,7 @@
     <div class="link-btn delete-btn"><%= link_to "Delete Happening", event_path(e), data: { turbo_method: :delete } %></div>
   </div>
 
-  <% if e.private && e.invitees.include?(current_user)  %>
+  <% if !e.private || e.invitees.include?(current_user)  %>
     <div class="event-btn">
       <% if user_signed_in? %>
       <div class="link-btn attend-btn"><%= link_to "Attend Happening", new_admission_path(:event_id => e.id) %></div>
