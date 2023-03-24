@@ -131,9 +131,6 @@ html {
 .flash-message {
   align-self: center;
   background-color: var(--dark-blue);
-
-
-
 }
 
 .flash-message > div {

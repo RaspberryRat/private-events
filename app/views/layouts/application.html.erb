@@ -18,7 +18,7 @@
         <ul>
           <% if user_signed_in? %>
           <li class="log-out-btn link-btn">
-            <%= link_to "Logout", destroy_user_session_path, method: :delete  %>
+            <%= button_to "Logout", destroy_user_session_path, method: :delete  %>
           </li>
           <% else %>
           <li class="link-btn">
@@ -41,6 +41,8 @@
           <div class="<%= name %>"><%= message %></div>
           <% end %>
         </div>
+
+
 
       <div class="content-container">
         <%= yield %>
