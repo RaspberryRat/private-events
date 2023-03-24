@@ -29,6 +29,13 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
+    @creator = @event.creator
+
+    unless @creator == current_user
+      flash[:error] = "You must be the Happening Creator to Edit."
+      puts "You must be the Happening Creator to Edit."
+      return redirect_to event_path(@event)
+    end
 
     if @event.update(event_params)
       redirect_to @event
@@ -39,8 +46,15 @@ class EventsController < ApplicationController
 
   def destroy
     @event = Event.find(params[:id])
-    @event.destroy
+    @creator = @event.creator
 
+    unless @creator == current_user
+      flash[:error] = "You must be the Happening Creator to Delete."
+      puts "You must be the Happening Creator to Delete."
+      return redirect_to event_path(@event)
+    end
+
+    @event.destroy
     redirect_to root_path, status: :see_other
   end
 
